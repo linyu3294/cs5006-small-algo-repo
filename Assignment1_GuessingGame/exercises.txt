@@ -4,7 +4,11 @@ In order to start thinking a bit algorithmically, modify this file and answer th
 
 
 1.) In the worst case in our guessing game--how many guesses could it take to get the right number if we had no hint at all? Explain.
-
+	
+	When no hints are allowed, it could take infinite amount of guess to reach the right number, because no upper or lower bounds are give to ensure the player is getting closer to the number. The player can be straying the wrong direction forever.
 
 
 2.) In the worst case in our guessing game--how many guesses does it take to get the right number if we get a hint of 'higher or lower' when guessing numbers 1-10? *Hint* In your answer you might show this mathematically with the log function.
+
+	In the worse case senario, it will take 3 guesses to get the right result. The number of guesses in the worse case senario can be calculated by floor(log(base2)10)=3. This is a binary search method.
+	 
