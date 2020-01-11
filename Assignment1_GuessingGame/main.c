@@ -26,7 +26,7 @@ int main () {
 		
 		scanf("%d", &guess);
 	
-		printf ("Random Number = %d  and Your guess = %d ", rand_num, guess);
+		// printf ("Random Number = %d  and Your guess = %d ", rand_num, guess);
 			// Check conditions and print hints.
 			// If a guess is correct, break out of while loop.
 			if (rand_num > guess)
@@ -53,7 +53,7 @@ int main () {
                 printf ("=========================");
 		int j = 0;
 		for (j =0; j<5; j++) {
-		printf ("\n%d", score[j]);
+		printf ("\nGame %d took %d guesses", j, score[j]);
 		}
 		printf("\n");
 }
