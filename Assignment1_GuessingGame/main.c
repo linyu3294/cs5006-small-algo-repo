@@ -9,13 +9,12 @@ int main () {
 		int i = 0;
 	        for (i =0; i <5; i++) {
         	// initializing random number.
-        	int rand_num = (rand() % 10) + 1;
+        	int rand_num = rand() % 10 + 1;
 		
 
 		// for each i, start the game.	
 		printf ("\n=========================\n");
-        	printf ("CPU Says: Pick a number 1-10\n");
-		printf ("%d \n", rand_num );		
+        	printf ("CPU Says: Pick a number 1-10\n");		
 		printf ("=========================");
 		int guess = 0;
 		int num_of_guesses = 0;
