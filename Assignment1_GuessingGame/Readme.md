@@ -1,13 +1,13 @@
 ### TODO Please edit the following information in your assignment
 
-- Name(s):
-- How many hours did it take you to complete this Assignment?
-- Did you collaborate with any other students/TAs/Professors?
-- Did you use any external resources? (Cite them below)
+- Name(s): Yu Lin
+- How many hours did it take you to complete this Assignment? 10 hr
+- Did you collaborate with any other students/TAs/Professors? No
+- Did you use any external resources? (Cite them below) No
   - tbd
   - tbd
-- (Optional) What was your favorite part of the assignment?
-- (Optional) How would you improve the assignment?
+- (Optional) What was your favorite part of the assignment? 
+- (Optional) How would you improve the assignment? 
 
 # Prompt
 
