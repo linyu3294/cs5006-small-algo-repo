@@ -5,6 +5,7 @@
 int main () {
         // initializing the reults of each game.
 	int score[] = {0,0,0,0,0};
+        int failed_game_tracker[] = {0, 0, 0, 0, 0};
 
 		int i = 0;
 	        for (i =0; i <5; i++) {
@@ -18,8 +19,16 @@ int main () {
 		printf ("=========================");
 		int guess = 0;
 		int num_of_guesses = 0;
-		while (guess != rand_num) {
-		// Prompt user to guess.
+		
+                while (guess != rand_num) {
+                    
+                // Check to make sure user has not used all 10 guesses
+                if (num_of_guesses == 10) {
+                    failed_game_tracker[i] =1;
+                    printf("\nSorry, You have ran out of turns!");
+                    break;
+                }
+                // Prompt user to guess.
 		printf ("\nMake a guess: ");
 		int guess = 0;
 		
@@ -52,7 +61,12 @@ int main () {
                 printf ("=========================");
 		int j = 0;
 		for (j =0; j<5; j++) {
-		printf ("\nGame %d took %d guesses", j, score[j]);
+                    if (failed_game_tracker[j]==1){
+                        printf("\nYou failed to guess the right number in game %d", j+1);
+                    }
+                    else{
+		        printf ("\nGame %d took %d guesses", j+1, score[j]);
+                    }
 		}
 		printf("\n");
 }
