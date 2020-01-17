@@ -1,22 +1,23 @@
-//
-//  linkedlist_draft.c
-//  helloworld.c
-//
-//  Created by Yu Lin on 1/14/20.
-//  Copyright © 2020 Yu Lin. All rights reserved.
-
+// Modify this file
+// compile with: gcc linkedlist.c -o linkedlist
 
 //Reference Source : used code from http://www.zentut.com/c-tutorial/c-linked-list/
 
-
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdlib.h> // contains the functions free/malloc
 
+
+// Create your node_t type here
 typedef struct node {
     int year;
     int wins;
     struct node* next;
 }node_t;
+
+
+// Write your functions here
+// There should be 1.) create_list 2.) print_list 3.) free_list
+// You may create as many helper functions as you like.
 
 
 node_t* create_node (int year , int wins, node_t* next) {
@@ -71,10 +72,9 @@ void free_list(node_t* node_pointer) {
 
 
 int main() {
-    node_t* example = create_list();
-    printf("%p", example);
-    print_list(example);
-    free_list(example);   
+    node_t* head_node_pointer = create_list();
+    print_list(head_node_pointer);
+    free_list(head_node_pointer);   
 }
 
 
