@@ -21,7 +21,6 @@ typedef struct node {
 
 
 node_t* create_node (int year , int wins, node_t* next) {
-
     node_t* new_node = (node_t*) malloc(sizeof(node_t));
     if (new_node == NULL) {
         printf("Unable to create a node.");
@@ -64,9 +63,9 @@ void free_list(node_t* node_pointer) {
     }
     node_t* iter = node_pointer;
        while (iter != NULL) {
-           node_t* temp = iter;
+           node_t* temporary = iter->next;
            free (iter);
-           iter =(*temp).next;
+           iter = temporary;
        }
 }
 
