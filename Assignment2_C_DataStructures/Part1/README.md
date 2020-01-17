@@ -58,6 +58,9 @@ Do a little outside research, and edit this section of the readme answering spec
 
 *My answer is ...*
 
+1) Ring Buffer limits the memory to a constant, because instead of creating new memory for new input, old memory is overwritten to receve the new input. 
+2) Ring Buffer is suited for First in First out queues.
+
 # Rubric
 
 - 40% Correct Queue implementation
