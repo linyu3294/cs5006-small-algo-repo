@@ -30,7 +30,7 @@ void create_queue_test(){
     else {
         printf("\ncreate_queue() test failed; New queue not initiated properly. Is Null or a attribute/s not assigned correctly.\n");
     }
-    
+    free_queue(test1);    
 }
 
 void queue_empty_test() {
@@ -41,6 +41,7 @@ void queue_empty_test() {
     else {
         printf("\nqueue_empty() test failed; New queue is not an empty queue.\n");
           }
+    free_queue(test2);
 }
 
 
@@ -57,6 +58,7 @@ void queue_full_test(){
     else {
         printf("\nqueue_empty() test failed; New queue is not full.\n");
     }
+    free_queue(test3);
 }
 
 
@@ -87,6 +89,7 @@ void queue_enqueue_test() {
     else{
         printf("\nqueue_enqueue() test 3 failed; unable to add a third item.\n");
     }
+    free_queue(test4);
 }
 
 
@@ -117,6 +120,7 @@ void queue_size_test() {
     else{
         printf("\nqueue_size() test 3 failed; queue size is not 3.\n");
     }
+    free_queue(test5);
 }
 
 void queue_dequeue_test() {
@@ -142,6 +146,7 @@ void queue_dequeue_test() {
     else{
         printf("\nqueue_dequeue() test 3 failed; front with data '1' is not removed.\n");
     }
+    free_queue(test6);
 }
 
 
@@ -153,6 +158,7 @@ void queue_empty_dequeue_test() {
     else{
     printf("\nqueue_dequeue() on empty queue test failed; method does not return a 0 when dequeueing an empty queue.\n");
      }
+    free_queue(test7);
 }
 
 
@@ -169,6 +175,7 @@ void queue_full_enqueue_test() {
     else{
     printf("\nqueue_dequeue() on full stack failed; method does not return a 0 when enqueueing a full queue.\n");
      }
+    free_queue(test8);
 }
 
 
