@@ -8,7 +8,7 @@
 
 // Our library that we have written.
 // Also, by a really smart engineer!
-#include "myStack.h"
+#include "mystack.h"
 // Note that we are locating this file
 // within the same directory, so we use quotations
 // and provide the path to this file which is within
