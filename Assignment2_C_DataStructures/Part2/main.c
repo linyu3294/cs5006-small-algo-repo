@@ -25,6 +25,7 @@ void create_stack_test(){
     else{
         printf("\ncreate_stack() test failed; Unable to create new stack.\n");
     }
+    free(test1);
 }
 
 void stack_empty_test(){
@@ -36,7 +37,10 @@ void stack_empty_test(){
     else {
         printf("\nstack_empty() test failed; New stack is not empty.\n");
     }
+    free(test2);
 }
+
+
 void stack_full_test(){
     stack_t* test3 = create_stack(3);
     stack_enqueue(test3, 1);
@@ -49,7 +53,7 @@ void stack_full_test(){
     else {
         printf("\nstack_empty() test failed; New stack is not full.\n");
     }
-    
+ free(test3);   
 }
 
 
@@ -80,6 +84,7 @@ void stack_enqueue_test() {
     else{
         printf("\nstack_enqueue() test 3 failed; unable to add a third item.\n");
     }
+    free(test4);
 }
 
 
@@ -110,6 +115,7 @@ void stack_size_test() {
     else{
         printf("\nstack_size() test 3 failed; stack size is not 3.\n");
     }
+free(test5);
 }
 
 void stack_dequeue_test() {
@@ -135,6 +141,7 @@ void stack_dequeue_test() {
     else{
         printf("\nstack_dequeue() test 3 failed; head with data '1' is not removed.\n");
     }
+    free(test6);
 }
 
 
@@ -147,6 +154,7 @@ void stack_empty_dequeue_test() {
             
     printf("\nstack_dequeue() on empty stack test failed; method does not return a 0 when dequeueing an empty stack.\n");
      }
+    free(test7);
     }
 
 void stack_full_enqueue_test() {
@@ -163,7 +171,8 @@ void stack_full_enqueue_test() {
             
     printf("\nstack_dequeue() on full stack failed; method does not return a 0 when enqueueing a full stack.\n");
      }
-    }
+free(test8); 
+}
 
 void free_stack_test() {
     stack_t* test9 = create_stack(3);
@@ -184,6 +193,7 @@ void free_stack_test() {
     else {
         printf("\nfree_stack() test failed;\n");
     }
+    free(test9);
 }
 
 // ====================================================
