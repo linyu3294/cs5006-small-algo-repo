@@ -59,6 +59,8 @@ We are going to talk about stacks quite a lot in this course, so it will be impo
 # TODO: Put your answer here
 
 *My answer is ...*
+	In stack, the rules of data access is strictly enforced. All data that's pushed in last will be returned as output first. This type of sequential data rule is ideal for LIFO tasks such as recursive functions. When a large task needs to be resolved, it can be broken down to a myriad of smaller and similar sub tasks. Each of the sub task is stacked on top of stack, resulting in the smallest unit of task is resolved first, and a flow that works it's back until the original large task is resolved.
+	Stack is very similar to the linked list in the sense that it's composed of a chain of node. This helps to retain the benefits of a linked list. If a node need to read within the stack, the stack can traverse the list, and get read-access the node in demand. The difference is that, by covention, a stack only adds and removes the head node. But it's useful that the stack has resemblant features as the linked list.
 
 # Rubric
 
