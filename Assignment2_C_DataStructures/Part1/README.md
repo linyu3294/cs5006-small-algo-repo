@@ -58,8 +58,10 @@ Do a little outside research, and edit this section of the readme answering spec
 
 *My answer is ...*
 
-1) Ring Buffer limits the memory to a constant, because instead of creating new memory for new input, old memory is overwritten to receve the new input. 
-2) Ring Buffer is suited for First in First out queues.
+	Ring Buffer is a queue that is very easily implementable. It is a linkedlist that traverses in a circular path. To implement the queue, one needs to keep only variables head and tail in the course of traversing around the buffer. There is no need reallocate data as data is pushed to the queue. This makes the Ring Buffer easily to write in any language.
+	
+	The method memeory allocation in ring buffers has the benefit of limiting memory use. As more data is enqueued to the queue, old data will be overriden so that no data will be shifted in space of computer memory. Instead of creating new memory and shifting the old memory from it's original place, old memory just gets overriden, which has the computational advange of algorithmic efficiency becuase less steps are taken to store the  memory.
+
 
 # Rubric
 
