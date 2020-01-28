@@ -13,14 +13,26 @@
 int findMinimum(int* array, int start, int stop){
     // TODO: Iterate through a subset of the array and find the minimum value.
     //       Return the index of that minimum value.
-  
-    return -1; // TODO: Modify this to return the
+    int curr = array[start];
+    int least = curr;
+    int index_of_least = start;
+//        printf("\nCurrent [%d] is : %d\n", i, curr);
+    for (int j=start+1; j<stop; j++){
+        if (array [j]<least){
+            least = array[j];
+            index_of_least = j;
+        }
+    }
+    return index_of_least; // TODO: Modify this to return the
 }
 
 // Swaps two numbers in an array
 // Input: The 'address of' an index into an array for positions in an array.
 void swap(int* a, int* b){
     // TODO: Swap two integers in an array.
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
 // Provided below is a sort function. I have also
@@ -28,23 +40,16 @@ void swap(int* a, int* b){
 // to help organize your code.
 // Name: sort
 // Input(s):
-//          (1) 'array' is a pointer to an integer address. 
+//          (1) 'array' is a pointer to an integer address.
 //              This is the start of some 'contiguous block of memory' that we will sort.
 //          (2) 'size' tells us how big the array of data is we are sorting.
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
-    // TODO: Implement selection sort
-        for (int i =0; i<size; i++){
-        int curr = array[i];
-        int least = curr;
-        int index_of_least = i;
-        for (int j=i+1; j<size; j++){
-            if (array [j]<least){
-                least = array[j];
-                index_of_least = j;
-            }
-        }
-    swap(&array[index_of_least], &array[i]);
+// TODO: Implement selection sort
+    for (int i =0; i<size; i++){
+        int start = i;
+        int minimum = findMinimum(array, start, size);
+        swap(&array[minimum], &array[i]);
     }
 }
 
