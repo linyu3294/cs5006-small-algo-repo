@@ -8,7 +8,12 @@
 // Swaps two numbers in an array
 // Input: The 'address of' an index into an array for positions in an array.
 void swap(int* a, int* b){
+//    printf("\n a is: %d and b is %d\n", *a, *b);
     // TODO: Swap two integers in an array.
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+//    printf("\n After Swap a is: %d and b is %d\n", *a, *b);
 }
 
 // Provided below is a sort function. We have also
@@ -16,12 +21,24 @@ void swap(int* a, int* b){
 // to help organize your code.
 // Name: sort
 // Input(s):
-//          (1) 'array' is a pointer to an integer address. 
+//          (1) 'array' is a pointer to an integer address.
 //              This is the start of some 'contiguous block of memory' that we will sort.
 //          (2) 'size' tells us how big the array of data is we are sorting.
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
-    // TODO: Implement insertion sort
+        // TODO: Implement insertion sort
+    for (int i =0; i<size; i++){
+        int curr = array[i];
+        int least = curr;
+        int index_of_least = i;
+        for (int j=i+1; j<size; j++){
+            if (array [j]<least){
+                least = array[j];
+                index_of_least = j;
+            }
+        }
+    swap(&array[index_of_least], &array[i]);
+    }
 }
 
 
@@ -34,6 +51,8 @@ void printIntArray(int* array, unsigned int size){
   }
   printf("\n");
 }
+
+
 
 int main(){
   
