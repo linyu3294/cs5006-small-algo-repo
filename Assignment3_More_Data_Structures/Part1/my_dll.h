@@ -93,7 +93,7 @@ int dll_push_front(dll_t* l, int item){
 
 
 // push a new item to the end of the DLL (after the last node in the list).
-// Returns a -1 if the operation failsm (and if the DLL is NULL), otherwise returns 0 on success.
+// Returns a -1 if the operation failsm (and if the DLL is NULL), otherwise returns 1 on success.
 // (i.e. the memory allocation for a new node failed).
 int dll_push_back(dll_t* l, int item){
     if (l == NULL){
@@ -240,12 +240,13 @@ int dll_remove(dll_t* l, int pos){
         for (int i=0; i<pos; i++){
             iter = iter->next;
         }
+        int rem_item = iter->data;
         iter->previous->next=iter->next;
         iter->next->previous=iter->previous;
         free(iter);
            l->count--;
     }
-    return 1;
+    return rem_item;
 }
 
 
