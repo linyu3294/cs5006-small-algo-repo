@@ -26,7 +26,14 @@ void swap(int* a, int* b){
 //          (2) 'size' tells us how big the array of data is we are sorting.
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
-        // TODO: Implement insertion sort
+    // TODO: Implement Insertion Sort
+    for (int i=0; i< size; i++){
+        int j = i;
+        while ( j > 0 && array[j] < array[j-1]){
+            swap(&array[j] , &array[j-1]);
+            j--;
+        }
+    }
 }
 
 
@@ -43,7 +50,6 @@ void printIntArray(int* array, unsigned int size){
 
 
 int main(){
-  
   // Some test data sets.
   int dataset1[] = {0,1,2,3,4,5,6,7,8,9,10};
   int dataset2[] = {10,9,8,7,6,5,4,3,2,1,0};
