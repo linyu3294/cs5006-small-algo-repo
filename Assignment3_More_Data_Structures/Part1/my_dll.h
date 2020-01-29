@@ -230,9 +230,11 @@ int dll_get(dll_t* l, int pos){
 // (i.e. trying to remove at a negative position or at a position past the size of the DLL ).
 // Think testcases here.
 int dll_remove(dll_t* l, int pos){
-    if (l==NULL || pos<0 || pos>l->count-1 || count ==0){
+    if (l==NULL || pos<0 || pos>l->count-1 || l-> count ==0){
         return -1;
     }
+
+    int rem_item = NULL;
     if (pos==0 && l->count>=1){dll_pop_front(l);}
     else if(pos==l->count-1){dll_pop_back(l);}
     else{
@@ -240,7 +242,7 @@ int dll_remove(dll_t* l, int pos){
         for (int i=0; i<pos; i++){
             iter = iter->next;
         }
-        int rem_item = iter->data;
+        rem_item = iter->data;
         iter->previous->next=iter->next;
         iter->next->previous=iter->previous;
         free(iter);
