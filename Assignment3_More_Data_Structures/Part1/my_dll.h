@@ -234,10 +234,15 @@ int dll_remove(dll_t* l, int pos){
         return -1;
     }
 
-    int rem_item = NULL;
-    if (pos==0 && l->count>=1){dll_pop_front(l);}
-    else if(pos==l->count-1){dll_pop_back(l);}
+    int rem_item =0;
+    if (pos==0 && l->count>=1){
+        printf("a");
+        return (dll_pop_front(l));}
+    else if(pos==l->count-1){
+        printf("b");
+        return(dll_pop_back(l));}
     else{
+        printf("c");
         node_t* iter = l->head;
         for (int i=0; i<pos; i++){
             iter = iter->next;
@@ -246,7 +251,7 @@ int dll_remove(dll_t* l, int pos){
         iter->previous->next=iter->next;
         iter->next->previous=iter->previous;
         free(iter);
-           l->count--;
+        l->count--;
     }
     return rem_item;
 }
