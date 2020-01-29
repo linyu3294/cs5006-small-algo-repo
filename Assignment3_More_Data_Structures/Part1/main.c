@@ -431,7 +431,7 @@ void dll_remove_middle_test(){
     int result = dll_remove(test23, 2);
     if (test23->head->data == 2 &&
         test23->head->next->data ==5 &&
-        test23->head->next->next->data ==3 && result == 1){
+        test23->head->next->next->data ==3 && result == 4){
         printf("\ndll_remove() test 1 passed; able to remove an item in the middle of the dll.\n");
     }
     else{
@@ -448,7 +448,8 @@ void dll_remove_0_pos_test(){
     dll_push_front(test24, 5);
     dll_push_front(test24, 2);
     int result = dll_remove(test24, 0);
-    if (test24->head->data == 5 && result == 1){
+    printf("%d",result);
+    if (test24->head->data == 5 && result == 2){
         printf("\ndll_remove() test 2 passed; able to remove an item at the 0 pos of the dll.\n");
     }
     else{
@@ -460,15 +461,9 @@ void dll_remove_0_pos_test(){
 void dll_remove_0_pos_1node_test(){
     dll_t* test25 = create_dll();
     dll_push_front(test25, 3);
-     printf("%d", test25->count);
     int result = dll_remove(test25, 0);
     
-    if (test25->head ==NULL){printf("ert");}
-//        &&
-    if (  result ==1) {printf("ded");}
-//          &&
-    printf("%d", test25->count);
-       if( dll_empty(test25)){
+    if (test25->head ==NULL && result == 3 && dll_empty(test25)){
         printf("\ndll_remove() test 3 passed; able to remove an item at the 0 pos of a single node dll.\n");
     }
     else{
@@ -484,7 +479,7 @@ void dll_remove_end_pos_test(){
     dll_push_front(test26, 5);
     dll_push_front(test26, 2);
     int result =dll_remove(test26, 3);
-    if (test26->tail->data == 4 && result == 1){
+    if (test26->tail->data == 4 && result == 6){
         printf("\ndll_remove() test 4 passed; able to remove an item at the end pos of the dll.\n");
     }
     else{
