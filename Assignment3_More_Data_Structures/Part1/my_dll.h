@@ -193,7 +193,8 @@ int dll_insert(dll_t* l, int pos, int item){
         node_t* newNode = (node_t*)malloc(sizeof(node_t));
         newNode->data = item;
         node_t* iter = l->head;
-        for (int i=0; i<pos; i++){
+        int i =0;
+        for (i=0; i<pos; i++){
             iter = iter->next;
         }
         iter->previous->next = newNode;
@@ -216,7 +217,8 @@ int dll_get(dll_t* l, int pos){
         return -1;
     }
     node_t* iter = l->head;
-    for (int i=0; i<pos; i++){
+    int i=0;
+    for (i=0; i<pos; i++){
         iter = iter->next;
         }
      return iter->data;
@@ -244,7 +246,8 @@ int dll_remove(dll_t* l, int pos){
     else{
         printf("c");
         node_t* iter = l->head;
-        for (int i=0; i<pos; i++){
+        int i =0;
+        for (i=0; i<pos; i++){
             iter = iter->next;
         }
         rem_item = iter->data;
