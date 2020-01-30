@@ -5,14 +5,20 @@
 
 // TODO: Implement iterative solution here
 int factorial(int n){
-
-  return 0;
+    int i =0;
+    int fact =1;
+    for (i=1; i<n; i++){
+        fact = i* fact;
+    }
+  return fact;
 };
 
 // TODO: Implement recursive solution here
 int factorial_rec(int n){
-
-  return 0;
+    if (n==1) {
+        return (1);
+    }
+    return (n * factorial_rec(n-1));
 }
 
 int main(){
@@ -23,3 +29,4 @@ int main(){
 
   return 0;
 }
+
