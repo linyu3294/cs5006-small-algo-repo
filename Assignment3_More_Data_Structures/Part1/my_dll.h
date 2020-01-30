@@ -277,10 +277,10 @@ unsigned int dll_size(dll_t* t){
 void free_dll(dll_t* t){
     node_t* iter = t->head;
     while (iter != NULL){
-        node_t* temp= iter;
+        node_t* temp= iter-> next ;
         free(iter);
         t->head = temp;
-        iter = iter->next;
+        iter = t->head;
     }
     free(t);
 }
