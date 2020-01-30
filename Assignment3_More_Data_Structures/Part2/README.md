@@ -57,7 +57,7 @@ Discuss and answer the following questions (Please make sure to elaborate and ju
 
 ## Answers:
 
-1. The worst case time complexity of insertion sort is O(n2). This is because there are two loops that need to traverse through the array, one nested in the other.
+1. The worst case time complexity of insertion sort is O(n^2). This is because there are two loops that need to traverse through the array, one nested in the other.
 
 
 2. The worst case time complexity of insertion sort is O(n). This is when the array is already sorted. So the algorithm only needs to traverse through one loop.
