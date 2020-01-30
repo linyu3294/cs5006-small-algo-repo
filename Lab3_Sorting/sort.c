@@ -17,7 +17,8 @@ int findMinimum(int* array, int start, int stop){
     int least = curr;
     int index_of_least = start;
 //        printf("\nCurrent [%d] is : %d\n", i, curr);
-    for (int j=start+1; j<stop; j++){
+    int j = start+1;
+    for (j=start+1; j<stop; j++){
         if (array [j]<least){
             least = array[j];
             index_of_least = j;
@@ -46,7 +47,8 @@ void swap(int* a, int* b){
 // Output: No value is returned, but 'array' should be modified to store a sorted array of numbers.
 void sortIntegers(int* array, unsigned int size){
 // TODO: Implement selection sort
-    for (int i =0; i<size; i++){
+    int i = 0;
+    for (i =0; i<size; i++){
         int start = i;
         int minimum = findMinimum(array, start, size);
         swap(&array[minimum], &array[i]);
