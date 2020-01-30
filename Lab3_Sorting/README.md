@@ -89,9 +89,11 @@ With your partner, discuss and answer the following questions:
 
 ## Answers:
 
-1. *edit your answer here for Part 2 question 1*
-2. *edit your answer here for Part 2 question 2*
-3. *edit your answer here for Part 2 question 3*
+1. The worst case time complexity of selection sort is O(n^2). This is because there are two loops that need to traverse through the array, one nested in the other.
+
+2. 1. The best case time complexity of selection sort is also O(n^2). This is because there are two loops that need to traverse through the array regardless if the array is sorted or not, one nested in the other.
+
+3. No, selection sort is an in-place algorithm and the sorting happens right in the original array. It does not require any additional space.
 
 # Deliverable
 
