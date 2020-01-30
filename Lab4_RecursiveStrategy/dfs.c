@@ -23,6 +23,9 @@ int hasLeft (TreeNode_t* node) {
 }
 
 
+// Helper function - helps to verify that next Right Node exists
+// IF Right does not exist/ == NULL then return -1.
+// IF Right does exist returns 1.
 int hasRight (TreeNode_t* node) {
     if (node->right == NULL) {
         return -1;
