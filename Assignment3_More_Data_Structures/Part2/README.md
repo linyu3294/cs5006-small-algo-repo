@@ -57,10 +57,14 @@ Discuss and answer the following questions (Please make sure to elaborate and ju
 
 ## Answers:
 
-1. *edit your answer here for Part 2 question 1*
-2. *edit your answer here for Part 2 question 2*
-3. *edit your answer here for Part 2 question 3*
-4. *edit your answer here for Part 2 question 3*
+1. The worst case time complexity of insertion sort is O(n2). This is because there are two loops that need to traverse through the array, one nested in the other.
+
+
+2. The worst case time complexity of insertion sort is O(n). This is when the array is already sorted. So the algorithm only needs to traverse through one loop.
+
+3. Since insertion sort is an in-place algorithm, it does not need additional storage beyond the original array. The sorting happens right in the original array.
+
+4. Yes insertion sort is a stable algorithm, as it maintains the order of items with same values.
 
 
 # Deliverable
