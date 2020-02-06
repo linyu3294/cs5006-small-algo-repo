@@ -20,11 +20,11 @@ void merge(int arr[], int l, int m, int r) {
     int right[h_2];
     
     int i =0;
-    int j =0;
-    for (int i=0; i<h_1; i++){
+    for ( i=0; i<h_1; i++){
         left[i] = arr[l + i];
     }
-    for (int j=0; j<h_2; j++){
+    int j =0;
+    for ( j=0; j<h_2; j++){
         right[j] = arr[(m +1 ) + j];
     }
     
@@ -96,6 +96,7 @@ void printIntArray(int* array, unsigned int size){
         return;
     }
     unsigned int i; // Note: 'unsigned int' is a datatype for storing positive integers.
+    i =0;
     for(i = 0; i < size; i++){
     printf("%d ",array[i]);
     }
