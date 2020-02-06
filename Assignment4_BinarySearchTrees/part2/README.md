@@ -63,10 +63,10 @@ Discuss and answer the following questions (Make sure to elaborate and justify y
 
 ## Answers:
 
-1. *edit your answer here for Part 2 question 1*
-2. *edit your answer here for Part 2 question 2*
-3. *edit your answer here for Part 2 question 3*
-4. *edit your answer here for Part 2 question 4*
+1. O(n log(n)) - there is a recursive process of spliting in two wrapped within a iterative process.
+2. O(n log(n)) - Should not change the complexity when having different data, process not conditional on data content.
+3. Yes - O(n) storage. Because of having to create a new array.
+4. O(log(n)) - There is a recursive process rather ran two loops.
 
 
 # Deliverable
