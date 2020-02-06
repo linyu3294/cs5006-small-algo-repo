@@ -38,10 +38,15 @@ Note: how the numbers descend, and how that may be a hint for structuring your r
 Once you have solved the above, answer and modify your programs for the following.
 
 1. What is a bigger [data type](https://www.geeksforgeeks.org/data-types-in-c/) you can use to compute larger factorials? Change the 'return type' and input parameters to the factorial to something other than 'int' (and also change the format specifier in printf to something other than %d for the datatype you choose).
+
+   
+
 2. Try with your partner computing factorials larger than say 15. At what point does your computer start to 'crash' or really slow down when you try a big enough factorial? Experiment and report your results.
 
-1. *put in a brief answer here to the experiment from question 1*
-2. *put in a brief answer here to the experiment from question 2*
+
+
+1.   I suppose a bigger data type than int would be long since it holds 8 bytes rather than a int holding only 4 bytes.
+2.   At 157, my computer crashed.
 
 ## Compiling and running the program.
 
