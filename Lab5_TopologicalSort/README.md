@@ -138,8 +138,8 @@ Discuss and answer the following:
 
 Your answers here:
 
-1. *edit your response*
-2. *edit your response*
+1. The Space complexity of an adjacency matrix is n^2 because, given n nodes, there will be 'n times n' space to store the         value of 1/0 even when there is no connection.
+2. No because a node can be reflexive and can point to itself in an adjacency matrix. The reflexive property "Rows == Col" need to be documented in a graph.
 
 
 ## Compiling and running the program.
