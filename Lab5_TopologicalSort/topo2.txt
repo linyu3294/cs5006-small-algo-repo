@@ -1,2 +1,11 @@
-eat sleep
+eat poop
 eat exercise
+exercise growStrong
+growStrong wrestle
+makeMoney buyFood
+buyFood cook
+cook eat
+wrestle growTired
+growTired sleep
+sleep wakeUp
+wakeUp work
