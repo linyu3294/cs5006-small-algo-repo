@@ -188,7 +188,8 @@ Discuss and answer the following:
 
 Your answer:
 
-1. *edit your response*
+1. a) You cannot run topological sort that is undirected. 
+   b) You can run a topological sort on a directed graph, but it will cause an INFINITE LOOP, without accounting for cycle, because in a cycle, there is no clear definitiion which is the starting and which is the ending node. In order to succumb to the this, you can use a function that tracks if a node is visited and stop once a node has been visited.
 
 
 # Deliverable
