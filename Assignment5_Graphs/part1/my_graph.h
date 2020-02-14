@@ -51,31 +51,30 @@ graph_t* create_graph(){
 
 // Graph Empty
 // Check if the graph is empty
-// Returns 0 if true (The graph is completely empty, i.e. numNodes == 0 )
+// Returns >=0 if true (The graph is completely empty, i.e. numNodes == 0 )
 // Returns -1 if false (the graph has at least one node)
 int graph_empty(graph_t* g){
 	return -1;
 }
 
 // Adds a new node withe the correspoding item in the graph.
-// Returns a -1 if the operation fails (otherwise returns 0 on success).
+// Returns a -1 if the operation fails or has duplicate node. (otherwise returns >=0 on success) 
 // (i.e. the memory allocation for a new node failed).
-// Duplicates nodes should not be added. For a duplicate node returns 0.
 int graph_add_node(graph_t* g, int item){
 	return -1; 
 }
 
 // Removes the node from the graph and the corresponding edges connected 
 // to the node.
-// Returns a -1 if the operation fails (otherwise returns 0 on success).
+// Returns a -1 if the operation fails (otherwise returns >=0 on success).
 // (the node to be removed doesn't exist in the graph).
 int graph_remove_node(graph_t* g, int item){
 	return -1; 
 }
 
 //Adds an edge from source to destination. 
-//If source or desination is not found in the graph returns -1.
-//Otherwise it returns 0 ( even for trying to add a duplicate edge )
+//If source or desination is not found, or the edge already exists in the graph returns -1.
+//Otherwise it returns >= 0
 int graph_add_edge(graph_t * g, int source, int destination){
 	return -1;
 }
@@ -83,16 +82,16 @@ int graph_add_edge(graph_t * g, int source, int destination){
 //Removes an edge from source to destination. 
 //If source or desination is not found in the graph returns -1.
 //If no such edge exists also returns -1.
-//Otherwise it returns 0
+//Otherwise it returns >=0
 int graph_remove_edge(graph_t * g, int source, int destination){
 	return -1;
 }
-//Returns 0 if the node with value is in the graph, otherwise returns -1;
+//Returns >=0 if the node with value is in the graph, otherwise returns -1;
 int contains_node( graph_t * g, int value){
    	return -1;
 }
 
-//Returns 0 if an edge from source to destination exists, -1 otherwise.
+//Returns >=0 if an edge from source to destination exists, -1 otherwise.
 int contains_edge( graph_t * g, int source, int destintaion){
 	return -1;
 }
@@ -114,13 +113,15 @@ void graph_print(graph_t * g){
 
 // Graph Size
 // Returns the number of nodes in the graph
-unsigned int graph_num_nodes(graph_t* g){
+// Returns -1 on failure.
+int graph_num_nodes(graph_t* g){
 	return 0;
 }
 
 // Graph Size
-// Returns the number of edges in the graph
-unsigned int graph_num_edges(graph_t* g){
+// Returns the number of edges in the graph, 
+// Returns -1 on failure. 
+int graph_num_edges(graph_t* g){
 	return 0;
 }
 

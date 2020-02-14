@@ -93,6 +93,95 @@ typedef struct graph_t{
 
 As you can see, this is why we need a `node_t * next` field in our node struct. We need to create a singly linked list of nodes that make our graph. Each node then has a singly linked linked list of neighbors. The neighbor nodes just store the data that the actual nodes store, **not** the actual nodes. If we want to get the actual node, we need to traverse our list of nodes and find the node that corresponds to that data and we know that two nodes cannot contain the same data in our graph as we do not allow duplicates. 
 
+### An alternative approach
+
+Another option to represent an adjencency list, is to use an actual list as a field in our `graph_t` struct to represent all of the nodes in the graph, and `node_t` struct to represent all of neighbors in the graph. We can use our DLL implementation from Assignment 3 for this purpose with a slight modification. 
+
+For example our graph `node_t` would now change to:
+
+```c
+typedef struct node{
+	int data;
+	struct dll_t* neighbors;
+}node_t;
+```
+Our `graph_t` struct would then change to:
+
+```cpp
+typedef struct graph_t{
+	int numNodes;
+        int numEdges;
+	struct dll_t * nodes;
+}graph_t;
+```
+
+Then we would have to change the data type that our DLL is currently storing, which is an int to a `node_t *`. Remember our DLL node struct:
+
+```c
+//This is the node for our DLL implementation
+typedef struct node{
+	int data;
+	struct node* next;
+	struct dll_t* neighbors;
+}node_t;
+```
+Since we will be storing pointers to graph nodes `int data` will change to `node* data`
+
+```c
+//This is the node for our DLL implementation
+typedef struct node{
+	node * data;
+	struct node* next;
+	struct node* prev;
+}node_t;
+```
+
+However, this is a little confusing, becuase right now the list node struct and the graph node struct are both named `node`. Therefore in the struct above we will not know which node we are talking about since `next` is of type `node *` and also `data` is of type `node *`. But these are actually different nodes. `node * data` needs to point to a graph node. 
+
+So lets rename our graph node struct to be `graph_node_t` not just `node`
+
+```c
+typedef struct graph_node{
+	int data;
+	struct dll_t* neighbors;
+}node_t;
+```
+Then we can go ahead and update our DLL `node`:
+
+```c
+//This is the node for our DLL implementation
+typedef struct node{
+	graph_node_t * data;
+	struct node* next;
+	struct node* previous;
+}node_t;
+```
+Now we can store `graph_node_t *` in our DLL as the data. And we can use all of the DLL functionallity that we already have. 
+
+For example our `add_node(graph_t * g, int data)` would look something like this:
+
+```c
+//This is the node for our DLL implementation
+ int add_node(graph_t * g, int data){
+ 	if ( g == NULL ) return -1;
+ 	
+	//make sure a node with this data is not alredy in the graph.
+	if ( contains_node(g, data) ) return -1;
+	
+	//If it isn't then make a new graph_node_t with this data.
+	graph_node_t * newNode = createNewGraphNode(data); // or just use malloc, this is a helper function
+	if ( newNode == NULL ) return -1;
+	
+	push_back(g->nodes, newNode);
+	g->numNodes = g->numNodes + 1;
+ }
+```
+
+Note that `push_back` is defined in our DLL. We can call `push_back` here because `g->nodes` is a DLL. Note that you will have to include `my_dll.h` in `my_graph.h` so we can use it. In addition `my_dll.h` needs to know about `graph_node_t` so we need to include `my_graph.h` inside of `my_dll.h`. This could however create circular dependency. 
+
+If from the above process you get an error saying that there has been multiple defenitions, the solution is to define the `graph_node_t` in its own header file `graph_node.h` and then include `graph_node.h` inside of `my_dll.h` and `my_graph.h`. Then you would delete the definition of `graph_node_t` from your `my_graph.h` file.
+
+
 ## TO DO
 
 ### Part 1
