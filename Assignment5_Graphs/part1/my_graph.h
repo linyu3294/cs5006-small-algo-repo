@@ -549,6 +549,7 @@ int visited(char* visitedArray, int size, int item) {
       return -1;
 }
 
+
 // Prints the the graph using BFS
 // For NULL or empty graph it should print nothing.
 void graph_print(graph_t * g){
@@ -670,10 +671,14 @@ int recur_find(dllNode* child, int value){
 // returns 0 if I can reach the destination from source,
 // -1 otherwise ( using BFS)
 int is_reachable(graph_t * g, int source, int dest){
-//    if (contains_node(g, source) == -1 ||
-//        contains_node(g, dest) == -1 ){
-//           return -1;
-//       }
+    if (g->numNodes ==0 ||
+        contains_node(g, source) == -1 ||
+        contains_node(g, dest) == -1 ){
+           return -1;
+       }
+    if (contains_edge(g, source, dest)==1){
+        return 0;
+    }
     dllNode* srcNode = g->allNodes->head;
     while (srcNode != NULL){
         if (srcNode->g_node->data == source){
@@ -681,28 +686,124 @@ int is_reachable(graph_t * g, int source, int dest){
         }
         srcNode =srcNode->next;
     }
-    printf("hello");
-    return recur_find(srcNode, dest);
+        queue_t* q = createQueue();
+
+        char visits [g->numNodes];
+        int u = 0;
+        for (u=0; u<g->numNodes; ++u)
+           {visits[u] = 'f';}
+
+        char* visitPointer = visits;
+        enqueue(q, srcNode->g_node->data);
+        int track = 0;
+        int pin = 0;
+        
+        while (!isEmpty(q)) {
+            int currPos = dll_get_pos(g->allNodes,q->items [q->head]);
+            gNode* currNode = dll_get(g->allNodes,currPos);
+            dllNode* childrenIter = currNode->connection->out_nodes->tail;
+            
+            while(childrenIter != NULL ){
+                int nodeData = childrenIter->g_node->data;
+                if (visited(visitPointer, g->numNodes, nodeData) == -1){
+                    enqueue(q, nodeData);
+                    visits[track] = nodeData + '0';
+                    track++;
+                }
+                
+                childrenIter = childrenIter->prv;
+                
+            }
+            if (source != dest && dequeue(q) ==dest){return 0;}
+            if (source == dest && dequeue(q) ==dest) {pin ++;}
+            if (pin == 2){return 0;}
+        }
+        free_queue(q);
+
+    return -1;
 }
 
-// returns 0 if there is a cycle in the graph,
-// returns-1 otherwise (using BFS or DFS)
+// returns 0 if there is a cycle in the graph, -1 otherwise (using BFS or DFS)
 int has_cycle(graph_t * g) {
-    return 0;
+    if (g == NULL || g->numEdges <1 || g->numNodes <1){
+        return -1;
+    }
+    dllNode* eachNode = g->allNodes->head;
+    while (eachNode != NULL){
+        if (is_reachable(g, eachNode->g_node->data, eachNode->g_node->data)==0){
+            return 0;
+        }
+        eachNode=eachNode->next;
+    }
+    return -1;
 }
 
-         
+
+
 // prints any path from source to destination if there exists one
 // (Choose either BFS or DFS, typically DFS is much simpler)
 int print_path(graph_t * g, int source, int dest) {
-    return 0;
+if (is_reachable(g, source, dest)!= 0){return -1;}
+
+    dllNode* srcNode = g->allNodes->head;
+    while (srcNode != NULL){
+        if (srcNode->g_node->data == source){
+            break;
+        }
+        srcNode =srcNode->next;
+    }
+        queue_t* q = createQueue();
+
+        char visits [g->numNodes];
+        int u = 0;
+        for (u=0; u<g->numNodes; ++u)
+           {visits[u] = 'f';}
+
+        char* visitPointer = visits;
+        enqueue(q, srcNode->g_node->data);
+        int track = 0;
+        int pin = 0;
+        
+        while (!isEmpty(q)) {
+            int currPos = dll_get_pos(g->allNodes,q->items [q->head]);
+            gNode* currNode = dll_get(g->allNodes,currPos);
+            dllNode* childrenIter = currNode->connection->out_nodes->tail;
+            
+            while(childrenIter != NULL ){
+                int nodeData = childrenIter->g_node->data;
+                if (visited(visitPointer, g->numNodes, nodeData) == -1){
+                    enqueue(q, nodeData);
+                    visits[track] = nodeData + '0';
+                    track++;
+                }
+                
+                childrenIter = childrenIter->prv;
+                
+            }
+            
+          printf(" => %d ", dequeue(q));
+        }
+        free_queue(q);
+
+    return -1;
 }
 
 // Free graph
 // Removes a graph and ALL of its elements from memory.
 // This should be called before the proram terminates.
 void free_graph(graph_t* g){
-
+    dllNode* iter = g->allNodes->head;
+    while(iter != NULL){
+        dllNode* tempdllNode = iter->next;
+    free_dll(iter->g_node->connection->in_nodes);
+        free_dll (iter->g_node->connection->out_nodes);
+        free(iter->g_node->connection);
+        free(iter->g_node);
+        
+        iter = tempdllNode;
+    }
+    free_dll(g->allNodes);
+    free(g);
 }
 
 
