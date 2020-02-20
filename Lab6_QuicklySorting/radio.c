@@ -68,14 +68,50 @@ void bruteForceSort(char** array, unsigned int start, unsigned int end){
 
 }
 
-// @Name    partition
-// @Brief   Helper funcion for quicksort
+
+// This function partitions around the last element.
+// That is, we decide which values go to the left or right
+// of the last index (i.e. our 'high' value of the current array)
+// The pivot itself will remain at the correct position.
 int partition(char** array, unsigned int low, unsigned int high){
-    // TODO:
+    // Choose the last element 'randomly' as the pivot.
+    // Note: Our 'pivot' when working with strings is something like
+    // char** pivot = &array[high];
+    // Use printf("%s",*pivot); to see if you get a reasonable string.
+    char* pivot = array[high];    // highest as pivot
+    
+    int i = (low - 1);
+
+    // If current element is smaller than or
+    // equal to pivot
+    // Note: we need to do a'strcmp' here against our *pivot)
+    for (int j = low; j <= high- 1; j++)
+    {
+      if (strcmp(array[j] , pivot)<0)
+      {
+          ++i;
+          swapStrings(&array[i], &array[j]);
+      }
+    }
+    // finally move the pivot to the right place.
+    swapStrings(&array[i + 1], &array[high]);
+    return (i + 1);
 }
 
 void quicksort(char** array, unsigned int low, unsigned int high){
-    // TODO:
+
+    if (low < high)
+      {
+          // pivot here is the partitioning index
+          // This means array[pivot] is at the correct
+          // position and will not need to  move
+          int pivot = partition(array, low, high);
+
+          // Recurse on the left and right side of the pivot
+          // Note: The offsets of -1 and +1 to avoid the pivot.
+          quicksort(array, low, pivot - 1);
+          quicksort(array, pivot + 1, high);
+      }
 }
 
 
