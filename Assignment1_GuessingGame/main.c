@@ -22,7 +22,7 @@ int main () {
 		
                 while (guess != rand_num) {
                     
-                // Check to make sure user has not used all 10 guesses
+                // Ceck to make sure user has not used all 10 guesses
                 if (num_of_guesses == 10) {
                     failed_game_tracker[i] =1;
                     printf("\nSorry, You have ran out of turns!");
