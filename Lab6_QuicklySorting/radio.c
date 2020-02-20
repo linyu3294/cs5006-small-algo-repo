@@ -85,7 +85,8 @@ int partition(char** array, unsigned int low, unsigned int high){
     // If current element is smaller than or
     // equal to pivot
     // Note: we need to do a'strcmp' here against our *pivot)
-    for (int j = low; j <= high- 1; j++)
+    int j =0;
+    for (j = low; j <= high- 1; j++)
     {
       if (strcmp(array[j] , pivot)<0)
       {
