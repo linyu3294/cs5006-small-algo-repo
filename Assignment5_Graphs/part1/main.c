@@ -500,21 +500,89 @@ void is_reachable_test() {
     graph_add_node(graph_test21, 5);
     graph_add_node(graph_test21, 6);
 
-    graph_add_edge(graph_test21, 1, 7);
+    graph_add_edge(graph_test21, 1, 1);
     graph_add_edge(graph_test21, 1, 2);
-    graph_add_edge(graph_test21, 3, 6);
-    graph_add_edge(graph_test21, 2, 6);
+    graph_add_edge(graph_test21, 4, 6);
+    graph_add_edge(graph_test21, 2, 3);
     graph_add_edge(graph_test21, 1, 3);
     graph_add_edge(graph_test21, 3, 4);
-    graph_add_edge(graph_test21, 1, 6);
+    graph_add_edge(graph_test21, 1, 0);
     
-    int result1 = is_reachable(graph_test21, 1, 7);
-    if (result1 == 1){
-        printf("\nis_reachable_test is successful. able to confirm reachability");
+    int result1 = is_reachable(graph_test21, 1, 5);
+    int result2 = is_reachable(graph_test21, 1, 6);
+    int result3 = is_reachable(graph_test21, 1, 4);
+    if (result1 == -1
+        &&
+        result2 ==0
+        &&
+        result3 ==0
+        ){
+        printf("\nis_reachable_test is successful. able to confirm reachability.\n");
     }
-    else {printf("\nis_reachable_test failed. not able to confirm reachability");
+    else {printf("\nis_reachable_test failed. not able to confirm reachability.\n");
      }
     free(graph_test21);
+}
+
+void has_cycle_test() {
+    graph_t* graph_test22 = create_graph();
+    graph_add_node(graph_test22, 1);
+    graph_add_node(graph_test22, 2);
+    graph_add_node(graph_test22, 3);
+    graph_add_node(graph_test22, 4);
+    graph_add_node(graph_test22, 5);
+    graph_add_node(graph_test22, 6);
+
+    graph_add_edge(graph_test22, 2, 5);
+    graph_add_edge(graph_test22, 1, 2);
+    graph_add_edge(graph_test22, 2, 6);
+    graph_add_edge(graph_test22, 2, 3);
+    graph_add_edge(graph_test22, 3, 5);
+    graph_add_edge(graph_test22, 5, 1);
+    graph_add_edge(graph_test22, 3, 4);
+    graph_add_edge(graph_test22, 4, 6);
+    graph_add_edge(graph_test22, 5, 0);
+////
+    int result1 = has_cycle(graph_test22);
+    int result2 = is_reachable(graph_test22, 1, 1);
+    int result3 = is_reachable(graph_test22, 6, 6);
+    
+    if (result1 == 0 && result2 ==0 && result3 == -1){
+        printf("\nhas_cycle_test is successful. able to confirm that has_cycle is working correctly.");
+    }
+    else {printf("\nhas_cycle_test failed. not able to confirm that has_cycle is working correctly.");
+     }
+    free(graph_test22);
+}
+
+
+void print_path_test() {
+    graph_t* graph_test23 = create_graph();
+    graph_add_node(graph_test23, 1);
+    graph_add_node(graph_test23, 2);
+    graph_add_node(graph_test23, 3);
+    graph_add_node(graph_test23, 4);
+    graph_add_node(graph_test23, 5);
+    graph_add_node(graph_test23, 6);
+
+    graph_add_edge(graph_test23, 2, 5);
+    graph_add_edge(graph_test23, 1, 2);
+    graph_add_edge(graph_test23, 2, 6);
+    graph_add_edge(graph_test23, 2, 3);
+    graph_add_edge(graph_test23, 3, 5);
+    graph_add_edge(graph_test23, 5, 1);
+    graph_add_edge(graph_test23, 3, 4);
+    graph_add_edge(graph_test23, 4, 6);
+    graph_add_edge(graph_test23, 5, 0);
+
+//    print_path(graph_test23,3,3);
+//    print_path(graph_test23,1,1);
+    print_path(graph_test23,1,5);
+    
+    
+    printf("\nIf graph elements printed above conform to data in the test case, then print_path passed, else failed.\n");
+    
+    free(graph_test23);
 }
 
 
@@ -544,9 +612,11 @@ int main(){
 
     numNeighbors_test();
     getNeighbors_test();
-    
     graph_print_test();
-    
     is_reachable_test();
+    has_cycle_test();
+    
+    print_path_test();
+    
     printf("\n");
 }
