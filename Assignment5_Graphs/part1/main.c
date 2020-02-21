@@ -521,7 +521,7 @@ void is_reachable_test() {
     }
     else {printf("\nis_reachable_test failed. not able to confirm reachability.\n");
      }
-    free(graph_test21);
+    free_graph(graph_test21);
 }
 
 void has_cycle_test() {
@@ -552,7 +552,7 @@ void has_cycle_test() {
     }
     else {printf("\nhas_cycle_test failed. not able to confirm that has_cycle is working correctly.");
      }
-    free(graph_test22);
+    free_graph(graph_test22);
 }
 
 
@@ -582,7 +582,7 @@ void print_path_test() {
     
     printf("\nIf graph elements printed above conform to data in the test case, then print_path passed, else failed.\n");
     
-    free(graph_test23);
+    free_graph(graph_test23);
 }
 
 
